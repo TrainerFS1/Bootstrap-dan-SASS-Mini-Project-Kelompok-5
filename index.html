@@ -13,6 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Berkshire Swash' rel='stylesheet'>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
         .bg-color {
             background-color: #FE639C;
@@ -268,13 +269,39 @@
                             style="display: block; margin-top: 10%; margin-left: auto; margin-right: auto; background-size: cover; height: 80%; width: 80%">
                         <div class="card-body">
                             <p class="card-text" style="font-size: larger;">Madu Hitam<br>By Muty</p>
-                            <h3 class="card-title" style="text-align: center;">RP 20.000,-</h3>
+                            <h3 class="card-title" style="text-align: center;" id="hargaProduk">RP 20.000,-</h3>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal untuk detail produk -->
+    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <p class="card-text" style="font-size: larger;">Premium Chia Seed By Muty</p>
+                    <p id="deskripsiProduk">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias perferendis
+                        expedita error
+                        voluptas adipisci officia aut eum nesciunt culpa dolorum, sit autem aliquid nam non aliquam est,
+                        similique, laudantium fuga.</p>
+                    <img class="card-img" src="" alt="Card image">
+                    <h3 class="card-title" style="text-align: center;" id="harga"></h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn text-white" style="background-color: #FE639C;"
+                        data-bs-dismiss="modal" aria-label="Close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section class="about py-5 text-white" style="background-color: #FE639C;" id="Testimoni">
         <div class="container" style="border-radius: 20px; overflow: hidden;">
@@ -331,28 +358,28 @@
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <a href="https://api.whatsapp.com/send/?phone=%2B6285161381841&text=Halo+admin+dilla%2C+saya+mau+order+Ramuan+Cinta%2C+Keluhan+saya+adalah%3A+.........++%28isi+disini%29&type=phone_number&app_absent=0"
-                        class="btn btn-lg btn-block text-white d-flex align-items-center justify-content-center"
+                        class="btn btn-lg btn-block text-white d-flex align-items-center justify-content-center btn-kontak"
                         style="border-radius: 20px; background-color: #FE639C; height: 100%; width: 100%;">
                         <i class="fab fa-whatsapp mr-2"></i> +62 85161381841
                     </a>
                 </div>
                 <div class="col-md-3 mb-3">
                     <a href="https://shopee.co.id/shop/31781298?utm_source=an_11358680000&utm_medium=affiliates&utm_campaign=-&utm_content=31781298----&utm_term=au9s2hib7yp3&is_from_login=true"
-                        class="btn btn-lg btn-block text-white"
+                        class="btn btn-lg btn-block text-white btn-kontak"
                         style="border-radius: 20px; background-color: #FE639C; height: 100%; width: 100%;">
                         <i class="fab fa-shopify mr-2"></i> RAMUAN CINTA OFFICIAL (PUSAT)
                     </a>
                 </div>
                 <div class="col-md-3 mb-3">
                     <a href="https://www.tokopedia.com/mutiarap0703?utm_medium=Share&utm_medium=Share&utm_campaign=Shop%20Share&utm_source=Desktop%3Futm_campaign%3DShop%2520Share&utm_source=Desktop&_branch_match_id=1227786139690872426&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL8nPzi9ITclM1MvJzMvWj0x3N0xNrPI3yUoCADj1jhQiAAAA"
-                        class="btn btn-lg btn-block text-white d-flex align-items-center justify-content-center"
+                        class="btn btn-lg btn-block text-white d-flex align-items-center justify-content-center btn-kontak"
                         style="border-radius: 20px; background-color: #FE639C; height: 100%; width: 100%;">
                         <i class="fab fa-tumblr-square mr-2"></i> Mutiarap0603
                     </a>
                 </div>
                 <div class="col-md-3 mb-3">
                     <a href="https://www.lazada.co.id/shop/ramuan-cinta-malang-pusat/?itemId=7928900879&spm=a2o4j.pdp_revamp.seller.1.12ce240ffpLn13&path=promotion-42714-0.htm&tab=promotion&channelSource=pdp"
-                        class="btn btn-lg btn-block text-white"
+                        class="btn btn-lg btn-block text-white btn-kontak"
                         style="border-radius: 20px; background-color: #FE639C; height: 100%; width: 100%;">
                         <i class="fab fa-linode mr-2"></i> Ramuan Cinta Malang PUSAT
                     </a>
@@ -405,6 +432,60 @@
             </footer>
         </div>
     </section>
+
+    <script>
+        $(document).ready(function () {
+            // hover card product
+            $(".card").hover(
+                function () {
+                    $(this).css("transform", "scale(1.05)");
+                },
+                function () {
+                    $(this).css("transform", "scale(1)");
+                }
+            );
+
+            // untuk menampilkan modal detail produk
+            $(".card").click(function () {
+                var title = $(this).find(".card-text").text();
+                var deskripsi = $(this).find("#deskripsiProduk").html();
+                var harga = $(this).find(".card-title").text();
+                var gambar = $(this).find(".card-img").attr("src");
+
+                $("#detailModalLabel").text(title);
+                $("#modalBody").html(deskripsi);
+                $("#modalBody .card-img").attr("src", gambar);
+                $("#detailModal").modal("show");
+                $("#harga").text(harga).css("color", "black");
+            });
+
+            // efek hover untuk img
+            $(".img-fluid").hover(
+                function () {
+                    $(this).css("transform", "scale(1.05)");
+                },
+                function () {
+                    $(this).css("transform", "scale(1)");
+                }
+            );
+
+            // efek hover untuk button di kontak
+            $(".btn-kontak").hover(
+                function () {
+                    $(this).css("transform", "scale(1.05)");
+                },
+                function () {
+                    $(this).css("transform", "scale(1)");
+                }
+            );
+
+            $(document).ready(function () {
+                $("#detailModal").click(function () {
+                    $("#modal-content").modal();
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
