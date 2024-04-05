@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 // Variables
+=======
+>>>>>>> 5823b43184fd4cec3bac86d14eba6046a9ecbd0f
 $bg-color: #fe639c;
 $text-color: #fff;
 $btn-hover-color: #ffd700;
 
+<<<<<<< HEAD
 // style bootstrap
 $card-border-radius: 15px;
 
@@ -12,6 +16,8 @@ $card-border-radius: 15px;
 
 
 // Mixins
+=======
+>>>>>>> 5823b43184fd4cec3bac86d14eba6046a9ecbd0f
 @mixin card-styles {
     margin-left: 7%;
     margin-right: 7%;
@@ -19,7 +25,10 @@ $card-border-radius: 15px;
     background-color: $bg-color;
 }
 
+<<<<<<< HEAD
 // Styles
+=======
+>>>>>>> 5823b43184fd4cec3bac86d14eba6046a9ecbd0f
 .bg-color {
     background-color: $bg-color;
 }
@@ -69,7 +78,10 @@ $card-border-radius: 15px;
     }
 }
 
+<<<<<<< HEAD
 // Sass External Style Sheet
+=======
+>>>>>>> 5823b43184fd4cec3bac86d14eba6046a9ecbd0f
 .hero-content {
     background-image: url("img/Group 10.png");
     background-size: cover;
@@ -90,7 +102,11 @@ $card-border-radius: 15px;
         background-color: #fe639c;
 
         &:hover {
+<<<<<<< HEAD
             background-color: #ff8db2; // Tambahan untuk mengganti warna tombol saat dihover
+=======
+            background-color: #ff8db2;
+>>>>>>> 5823b43184fd4cec3bac86d14eba6046a9ecbd0f
         }
     }
 }
@@ -155,11 +171,19 @@ $card-border-radius: 15px;
         }
 
         .card-text {
+<<<<<<< HEAD
             font-size: larger; // font-size
         }
 
         .card-title {
             text-align: center; // text-align
+=======
+            font-size: larger;
+        }
+
+        .card-title {
+            text-align: center;
+>>>>>>> 5823b43184fd4cec3bac86d14eba6046a9ecbd0f
         }
     }
 }
@@ -243,6 +267,7 @@ $card-border-radius: 15px;
             border-radius: 15px;
             height: 100%;
 
+<<<<<<< HEAD
             h4 {
                 // Your styles here
             }
@@ -251,6 +276,8 @@ $card-border-radius: 15px;
                 // Your styles here
             }
 
+=======
+>>>>>>> 5823b43184fd4cec3bac86d14eba6046a9ecbd0f
             .rating {
                 color: #ffd700;
 

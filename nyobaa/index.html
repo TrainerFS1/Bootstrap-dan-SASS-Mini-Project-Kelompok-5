@@ -344,7 +344,7 @@
                         <h4>Cristiano Ronaldo</h4>
                         <p class="text-muted">"Produk minuman jamu dari RAMUAN CINTA BYMUTY benar-benar mengubah hidup
                             saya. Rasanya enak dan saya merasa lebih sehat setelah mengonsumsinya secara teratur."</p>
-                        <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;<p>Messi</p>
+                        <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;<p>Cristiano Ronaldo</p>
                         </div>
                     </div>
                 </div>
@@ -466,20 +466,6 @@
                 }
             );
 
-            // untuk menampilkan modal detail produk
-            $(".card").click(function () {
-                var title = $(this).find(".card-text").text();
-                var deskripsi = $(this).find("#deskripsiProduk").html();
-                var harga = $(this).find(".card-title").text();
-                var gambar = $(this).find(".card-img").attr("src");
-
-                $("#detailModalLabel").text(title);
-                $("#modalBody").html(deskripsi);
-                $("#modalBody .card-img").attr("src", gambar);
-                $("#detailModal").modal("show");
-                $("#harga").text(harga).css("color", "black");
-            });
-
             // efek hover untuk img
             $(".img-fluid").hover(
                 function () {
@@ -506,6 +492,7 @@
                 });
             });
 
+            // menampilkan modal detail produk
             $(".tampilkan").click(function () {
                 // $(".card-wrapper").fadeIn();
                 var productName = $(this).find(".card-text").text().trim();
