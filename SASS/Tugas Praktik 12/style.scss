@@ -1,0 +1,11 @@
+@import "bootstrap-5.3.0/scss/bootstrap.scss";
+
+.card {
+    transition: background-color 0.3s, color 0.3s;
+    &:hover {
+        background-color: #000;
+        p, h1 {
+            color: #fff;
+        }
+    }
+}

@@ -1,0 +1,29 @@
+@use "partial"; // memasukkan _partial.scss menggunakan use
+
+@import "warna"; // import warna
+
+body {
+    background-color: $primary-color;
+    color: $text-color;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+
+h1 {
+    color: $secondary-color;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}

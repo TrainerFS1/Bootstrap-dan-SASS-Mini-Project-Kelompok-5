@@ -1,0 +1,44 @@
+@function text-shadow($color, $x-offset, $y-offset, $blur) {
+  $rgba-color: rgba($color, 0.5);
+  $shadow: $x-offset + "px " + $y-offset + "px " + $blur + "px " + $rgba-color;
+  @return $shadow;
+}
+
+// Mixin untuk membuat efek hover pada elemen
+@mixin hover-effect {
+  // untuk menargetkan efek hover pada elemen yang menggunakan mixin
+  &:hover {
+    @content;
+  }
+}
+
+.motivation-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  text-shadow: text-shadow(#000, 2, 2, 5);
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+  font-family: Arial, sans-serif;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  h1,
+  h3 {
+    color: #333;
+  }
+
+  p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: px-to-em(20);
+  }
+
+  @include hover-effect {
+    background-color: #ccc;
+    color: #fff;
+  }
+}
